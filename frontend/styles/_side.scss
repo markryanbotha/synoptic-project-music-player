@@ -1,0 +1,133 @@
+.drawer {
+    position: fixed;
+    box-shadow: 1px 2px 2px var(--mutedBackground),
+        2px 4px 4px var(--mutedBackground), 4px 8px 8px var(--mutedBackground),
+        8px 16px 16px var(--mutedBackground),
+        16px 32px 32px var(--mutedBackground);
+    border-radius: 0 1rem 0 0;
+    top: 0;
+    left: 0;
+    width: 30rem;
+    height: 92%;
+    overflow-y: scroll;
+    background: var(--background);
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    opacity: 0%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    h2 {
+        padding: 2rem;
+    }
+
+    &.open {
+        opacity: 100%;
+        transform: translate(0%);
+    }
+
+    &.modal-button-container {
+        height: 80px;
+        top: 92%;
+        border-radius: 0 0 1rem 0;
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    // border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--mutedBackground);
+    border-radius: 50px;
+}
+
+.library-item {
+    display: grid;
+    grid-template-areas: "image details delete";
+    grid-template-columns: 2fr 6fr 1fr;
+
+    padding: 1rem 2rem 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.75s ease-out;
+
+    .image {
+        width: 80%;
+        height: 80%;
+    }
+
+    .item-info {
+        padding-bottom: 1rem;
+        h3 {
+            font-size: 1rem;
+        }
+        h4 {
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+    }
+
+    &:hover {
+        background: var(--lightGrey);
+    }
+
+    &.active {
+        background-color: var(--decorative);
+    }
+
+    svg {
+        top: 10%;
+        font-size: 1.5rem;
+        position: relative;
+        opacity: 10%;
+        transition: all 0.5s ease;
+        z-index: 100;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.drawer-tabs {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.drawer-tab {
+    flex-grow: 1;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+}
+
+.search-input {
+    flex-grow: 1;
+}
+
+.delete-song {
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20%;
+    height: 20%;
+}

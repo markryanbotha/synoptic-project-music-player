@@ -1,0 +1,33 @@
+.home-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    grid-template-rows: 3fr 6fr 4fr;
+    grid-template-areas:
+        "title . open"
+        ". main  ."
+        ". player .";
+    background-color: var(--background);
+
+    @media (max-width: 768px) {
+        grid-template-areas:
+            "title . open"
+            "main main  main"
+            "player player player";
+        grid-template-rows: 1fr 6fr 2fr;
+    }
+}
+
+.open-drawer-button {
+    grid-area: open;
+    align-self: end;
+    justify-self: start;
+}
+
+.title {
+    grid-area: title;
+    align-self: end;
+    justify-self: end;
+    font-size: clamp(1rem, 10vw, 2rem);
+}

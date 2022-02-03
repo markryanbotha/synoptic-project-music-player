@@ -1,0 +1,37 @@
+.record {
+    grid-area: main;
+    align-self: flex-start;
+    justify-self: center;
+
+    width: 60%;
+    height: 60%;
+
+    img {
+        border-radius: 50%;
+    }
+
+    @media (max-width: 532px) {
+        align-self: center;
+        width: 80%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-song {
+    animation: rotate 20s linear forwards infinite;
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+}
+
+.paused {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
