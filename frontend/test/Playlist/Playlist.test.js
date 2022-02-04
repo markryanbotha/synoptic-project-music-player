@@ -16,6 +16,5 @@ describe("Playlist Integration Test", () => {
         fireEvent.click(createPlaylistButton)
 
         getByText(/Playlist Details/i)
-        getByText(/PhtoCameraIcon/i)
     })
 })
