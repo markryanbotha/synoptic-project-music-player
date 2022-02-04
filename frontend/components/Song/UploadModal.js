@@ -11,7 +11,11 @@ import { PhotoCamera } from "@mui/icons-material"
 import { useRecoilState, useSetRecoilState } from "recoil"
 import { useMutation } from "@apollo/client"
 import { useForm } from "react-hook-form"
-import { uploadModalIsOpenAtom, uploadIsLoadingAtom } from "../../utility"
+import {
+    uploadModalIsOpenAtom,
+    uploadIsLoadingAtom,
+    defaultImageToBase64,
+} from "../../utility"
 import { CREATE_SONG } from "../../graphql/createSong.js"
 import { toJpegBase64, toMp3Base64 } from "../../utility"
 import TextField from "../Shared/TextField"
@@ -61,6 +65,13 @@ const UploadModal = ({ audioFile, songDetails }) => {
     }
 
     const handleSongUpload = async ({ title, artist, album }) => {
+        if (!image) {
+            setAlertOpen(true)
+            setTimeout(() => {
+                setAlertOpen(false)
+            }, 2000)
+            return
+        }
         const buffer = await audioFile.arrayBuffer()
         const mp3Base64 = toMp3Base64(buffer)
         const songData = {

@@ -1,5 +1,6 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import {
+    allPlaylistsAtom,
     allSongsAtom,
     currentSongPlayingAtom,
     playbackQueueAtom,
@@ -66,6 +67,14 @@ export const SongList = () => {
         return null
     }
 
+    if (allSongs.length === 0) {
+        return (
+            <h3 style={{ paddingTop: "2rem" }}>
+                Upload a song to start listening to music
+            </h3>
+        )
+    }
+
     if (loading) {
         return <CircularProgress />
     }
@@ -108,6 +117,14 @@ export const PlaybackList = () => {
 
     if (!allSongs) {
         return null
+    }
+
+    if (allSongs.length === 0) {
+        return (
+            <h3 style={{ paddingTop: "2rem" }}>
+                Upload a song to start listening to music
+            </h3>
+        )
     }
 
     if (loading) {

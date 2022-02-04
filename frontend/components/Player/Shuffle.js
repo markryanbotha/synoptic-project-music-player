@@ -7,7 +7,6 @@ import {
     shouldShuffleAtom,
 } from "../../utility"
 import { BsShuffle } from "react-icons/bs"
-import { useState } from "react"
 
 Array.prototype.swapItems = function (a, b) {
     this[a] = this.splice(b, 1, this[a])[0]

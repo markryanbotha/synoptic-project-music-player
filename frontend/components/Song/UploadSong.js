@@ -41,7 +41,7 @@ const UploadSong = ({ open }) => {
             >
                 {loading ? "Uploading..." : "Upload Song"}
                 <input
-                    id="file-input"
+                    data-testid="file-input"
                     type="file"
                     ref={inputRef}
                     hidden

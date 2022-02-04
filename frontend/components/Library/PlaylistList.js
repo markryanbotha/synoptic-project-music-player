@@ -83,7 +83,15 @@ export const PlaylistList = () => {
     const [search, setSearch] = useState("")
 
     if (!allPlaylists) {
-        return null
+        null
+    }
+
+    if (allPlaylists.length === 0) {
+        return (
+            <h3 style={{ paddingTop: "2rem" }}>
+                Create a playlist to start listening to a playlist
+            </h3>
+        )
     }
 
     if (loading) {

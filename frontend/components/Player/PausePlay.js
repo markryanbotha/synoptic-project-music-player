@@ -23,8 +23,8 @@ export const PausePlay = ({ currentSongRef, currentSong, shouldPlay }) => {
     }
 
     return isPlaying ? (
-        <FaPause onClick={songPlayerHandler} />
+        <FaPause onClick={songPlayerHandler} data-testid="pause-button" />
     ) : (
-        <FaPlay onClick={songPlayerHandler} />
+        <FaPlay onClick={songPlayerHandler} data-testid="play-button" />
     )
 }

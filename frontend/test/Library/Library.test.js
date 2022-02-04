@@ -26,7 +26,7 @@ describe("Library Integration Test", () => {
         getByText(/Test Song Title/i)
         getByText(/Test Song Artist/i)
         getByText(/Mock Song Title/i)
-        getByText(/Mock Song Title/i)
+        getByText(/Mock Song Artist/i)
     })
 
     it("renders playlist list after clicking playlist tab", async () => {
@@ -37,5 +37,25 @@ describe("Library Integration Test", () => {
         fireEvent.click(playlistTab)
 
         getByText(/Test Playlist/i)
+    })
+
+    it("filters playlist list after searching", async () => {
+        const { getByText, getByRole, queryByText } = render(
+            <SideDrawer open={true} />,
+        )
+        await act(() => promise)
+
+        getByText(/Test Song Title/i)
+        getByText(/Mock Song Title/i)
+
+        const searchBox = getByRole("textbox")
+        fireEvent.change(searchBox, { target: { value: "Test" } })
+        const searchButton = getByRole("button", {
+            name: /search/i,
+        })
+        fireEvent.click(searchButton)
+
+        getByText(/Test Song Title/i)
+        expect(queryByText(/Mock Song Title/i)).not.toBeInTheDocument()
     })
 })

@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 2fr 8fr 2fr;
     grid-template-rows: 3fr 6fr 4fr;
+    padding: 1rem;
     grid-template-areas:
         "title . open"
         ". main  ."

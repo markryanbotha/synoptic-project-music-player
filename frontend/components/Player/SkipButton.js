@@ -30,8 +30,8 @@ export const SkipButton = ({ direction, setCurrentSong, index }) => {
     }
 
     return direction === "forward" ? (
-        <BsFillSkipEndFill onClick={handleSkip} />
+        <BsFillSkipEndFill onClick={handleSkip} data-testid="forward-skip" />
     ) : (
-        <BsSkipStartFill onClick={handleSkip} />
+        <BsSkipStartFill onClick={handleSkip} data-testid="backward-skip" />
     )
 }

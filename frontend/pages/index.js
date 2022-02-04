@@ -51,12 +51,12 @@ export default function Home() {
                         className="open-drawer-button"
                         onClick={() => setOpen(!open)}
                     >
-                        Open
+                        Open Library
                     </Button3D>
                     <Record />
                     <Player />
                 </div>
-                <SideDrawer open={open} />
+                <SideDrawer open={open} setOpen={setOpen}/>
                 <ModalButtons open={open} />
             </RecoilRoot>
         </ApolloProvider>

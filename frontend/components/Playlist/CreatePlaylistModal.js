@@ -124,7 +124,7 @@ const CreatePlaylistModal = () => {
                             setValue={setValue}
                         />
 
-                        <Button type="submit">Create Playlist</Button>
+                        <Button type="submit" data-testid="create-playlist-modal-button">Create Playlist</Button>
                     </form>
                 </Box>
             </Modal>

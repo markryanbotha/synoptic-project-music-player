@@ -9,13 +9,19 @@ export const getSongMetaData = (file) => {
                     tags.album = tags.title
                 }
 
-                const imageBase64 = toJpegBase64(tags.picture.data)
+                let imageBase64 = null
+                let imageFormat = null
+
+                if (tags?.picture) {
+                    imageBase64 = toJpegBase64(tags.picture?.data)
+                    imageFormat = tags.picture?.format
+                }
 
                 resolve({
                     title: tags.title,
                     cover: {
                         image: imageBase64,
-                        imageFormat: tags.picture.format,
+                        imageFormat,
                     },
                     artist: tags.artist,
                     album: tags.album,

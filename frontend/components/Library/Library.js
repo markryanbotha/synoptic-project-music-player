@@ -3,8 +3,9 @@ import { useRecoilState, useRecoilValue } from "recoil"
 import { currentTabAtom, playbackQueueAtom } from "../../utility"
 import { PlaylistList } from "./PlaylistList"
 import { SongList, PlaybackList } from "./SongList"
+import { AiOutlineCloseCircle } from "react-icons/ai"
 
-const SideDrawer = ({ open }) => {
+const SideDrawer = ({ open, setOpen }) => {
     const [currentTab, setCurrentTab] = useRecoilState(currentTabAtom)
     const playbackQueue = useRecoilValue(playbackQueueAtom)
 
@@ -15,7 +16,10 @@ const SideDrawer = ({ open }) => {
     return (
         <div className={`drawer ${open ? "open" : ""}`}>
             <h2>Currently Playing</h2>
-
+            <AiOutlineCloseCircle
+                className="exit"
+                onClick={() => setOpen(false)}
+            />
             <Tabs
                 value={currentTab}
                 onChange={handleTabChange}

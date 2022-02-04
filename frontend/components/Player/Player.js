@@ -40,6 +40,9 @@ const Player = () => {
 
     return (
         <div className="player" onClick={() => setShouldPlay(true)}>
+            <h1 style={{ alignSelf: "center", paddingTop: "1rem" }}>
+                {currentSong?.title}
+            </h1>
             <TrackTimeline currentSong={currentSongRef.current} />
             <div className="player-controls">
                 <SkipButton
